@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview --port 5173"
+    "preview": "vite preview --port 5173",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx src",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -14,9 +19,27 @@
   "devDependencies": {
     "vite": "^5.4.21",
     "@vitejs/plugin-react": "^4.0.0",
-  "patch-package": "^6.5.1",
+    "patch-package": "^6.5.1",
     "typescript": "^5.2.2",
     "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7"
+    "@types/react-dom": "^18.2.7",
+    "vitest": "^1.2.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "jsdom": "^22.1.0",
+    "eslint": "^8.47.0",
+    "eslint-plugin-react": "^7.33.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "prettier": "^2.9.0",
+  "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.4",
+    "lint-staged": "^14.0.0"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
